@@ -37,6 +37,186 @@ if (isset($_POST['body']) && !empty($_SESSION['login_user_id'])) {
   return;
 }
 ?>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      resize: vertical;
+      margin-bottom: 1em;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1em;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    dl {
+      margin-bottom: 1.5em;
+      background-color: white;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    dt {
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+
+    dd {
+      margin-bottom: 1em;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 1em;
+    }
+
+    .entry-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1em;
+    }
+
+    .entry-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .entry-header .entry-user-name {
+      font-weight: bold;
+    }
+
+    .entry-body {
+      font-size: 16px;
+    }
+
+    .entry-time {
+      font-size: 12px;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      form {
+        padding: 15px;
+      }
+
+      textarea {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      input[type="file"], button {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .entry-header img {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 8px;
+      }
+
+      .entry-header .entry-user-name {
+        font-size: 14px;
+      }
+
+      .entry-body {
+        font-size: 14px;
+      }
+
+      .entry-time {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      form {
+        padding: 10px;
+      }
+
+      textarea {
+        font-size: 13px;
+        padding: 6px;
+      }
+
+      input[type="file"], button {
+        padding: 8px;
+        font-size: 13px;
+      }
+
+      .entry-header img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .entry-header .entry-user-name {
+        font-size: 12px;
+      }
+
+      .entry-body {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
 
 <?php if(empty($_SESSION['login_user_id'])): ?>
   投稿するには<a href="/login.php">ログイン</a>が必要です。
